@@ -60,7 +60,7 @@ const InfoPayment: React.FC<InfoPaymentProps> = ({
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name
+                    Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="name"
@@ -71,10 +71,34 @@ const InfoPayment: React.FC<InfoPaymentProps> = ({
                     required
                   />
                 </div>
-                
+                <div>
+                  <label htmlFor="livename" className="block text-sm font-medium text-gray-700 mb-1">
+                    リベネーム
+                  </label>
+                  <input
+                    id="livename"
+                    type="text"
+                    value={orderInfo.livename}
+                    onChange={(e) => onChange({ livename: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="profile_url" className="block text-sm font-medium text-gray-700 mb-1">
+                    プロフィールURL
+                  </label>
+                  <input
+                    id="profile_url"
+                    type="url"
+                    value={orderInfo.profile_url}
+                    onChange={(e) => onChange({ profile_url: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone Number
+                    Phone Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="phone"
@@ -85,10 +109,9 @@ const InfoPayment: React.FC<InfoPaymentProps> = ({
                     required
                   />
                 </div>
-                
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="email"
@@ -99,7 +122,32 @@ const InfoPayment: React.FC<InfoPaymentProps> = ({
                     required
                   />
                 </div>
+                <div>
+                  <label htmlFor="memo" className="block text-sm font-medium text-gray-700 mb-1">
+                    メモ
+                  </label>
+                  <textarea
+                    id="memo"
+                    value={orderInfo.memo || ''}
+                    onChange={(e) => onChange({ memo: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    rows={2}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="booth_number" className="block text-sm font-medium text-gray-700 mb-1">
+                    ブース番号
+                  </label>
+                  <input
+                    id="booth_number"
+                    type="text"
+                    value={orderInfo.booth_number || ''}
+                    onChange={(e) => onChange({ booth_number: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
               </div>
+              <p className="text-xs text-gray-500 mt-2">※ <span className="text-red-500">*</span> は必須項目です</p>
             </div>
             
             <div className="space-y-8">

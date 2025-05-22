@@ -19,7 +19,11 @@ export interface TimeSlot {
 
 export interface OrderInfo {
   name: string;
-  phone: string;
+  livename: string;
   email: string;
+  phone: string;
+  profile_url: string;
   paymentMethod: 'card' | 'paypay';
+  memo?: string;
+  booth_number?: string;
 }
